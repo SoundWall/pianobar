@@ -325,6 +325,17 @@ static void BarMainPrintTime (BarApp_t *app) {
 			sign, songRemaining / 60, songRemaining % 60,
 			app->player.songDuration / 60,
 			app->player.songDuration % 60);
+
+	FILE* file = fopen("/tmp/pianobar_pos", "w");
+	if ( file )
+	{
+	    fprintf(file, "%u", songRemaining);
+	    fclose(file);
+	}
+	else
+	{
+	    BarUiMsg(&app->settings, MSG_ERR, "Unable to open position file for writing\n");
+	}
 }
 
 /*	main loop
