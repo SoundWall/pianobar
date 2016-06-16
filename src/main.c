@@ -329,7 +329,7 @@ static void BarMainPrintTime (BarApp_t *app) {
 	FILE* file = fopen("/tmp/pianobar_pos", "w");
 	if ( file )
 	{
-	    fprintf(file, "%u", songRemaining);
+	    fprintf(file, "%u", app->player.songPlayed);
 	    fclose(file);
 	}
 	else
