@@ -411,7 +411,10 @@ BarUiActCallback(BarUiActLoveSong) {
 /*	skip song
  */
 BarUiActCallback(BarUiActSkipSong) {
+	PianoReturn_t pRet;
+	CURLcode wRet;
 	BarUiDoSkipSong (&app->player);
+	BarUiActDefaultEventcmd( "play" );
 }
 
 /*	play
